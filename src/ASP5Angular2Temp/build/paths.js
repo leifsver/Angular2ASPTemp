@@ -10,7 +10,7 @@ module.exports = {
     root: appRoot,
     source: appRoot + '**/*.ts',
     html: appRoot + '**/*.html',
-    style: 'resources/**/*.css',
+    style: 'resources/styles/**/*.scss',
     output: outputRoot + '/scripts',
     temp: tempRoot,
     tempTs: tempTs,
@@ -19,5 +19,7 @@ module.exports = {
     e2eSpecsDist: 'test/e2e/dist/',
     npmSrc: './node_modules/',
     outputLibs: outputRoot + '/libs/',
+    outputResources: outputRoot + '/resources/',
+    outputStyles: outputRoot + '/resources/css',
     bowerComponentsRoot: bowerComponentsRoot
 };

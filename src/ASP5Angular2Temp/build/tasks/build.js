@@ -46,7 +46,7 @@ gulp.task('build-system', ['clean'], function () {
 // https://www.npmjs.com/package/gulp-run-sequence
 gulp.task('build', function (callback) {
     return runSequence(
-      ['build-system','libs'],
+      ['build-system','build-styles','libs'],
       callback
     );
 });
