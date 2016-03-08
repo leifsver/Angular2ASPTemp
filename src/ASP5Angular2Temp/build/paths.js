@@ -1,7 +1,7 @@
 var path = require('path');
 
 var appRoot = 'src/';
-var outputRoot = 'wwwroot/scripts/';
+var outputRoot = 'wwwroot/';
 var tempRoot = 'temp/';
 var tempTs = tempRoot + '/ts/';
 var bowerComponentsRoot = 'bower_components/';
@@ -11,11 +11,13 @@ module.exports = {
     source: appRoot + '**/*.ts',
     html: appRoot + '**/*.html',
     style: 'resources/**/*.css',
-    output: outputRoot,
+    output: outputRoot + '/scripts',
     temp: tempRoot,
     tempTs: tempTs,
     doc: './doc',
     e2eSpecsSrc: 'test/e2e/src/*.js',
     e2eSpecsDist: 'test/e2e/dist/',
+    npmSrc: './node_modules/',
+    outputLibs: outputRoot + '/libs/',
     bowerComponentsRoot: bowerComponentsRoot
 };

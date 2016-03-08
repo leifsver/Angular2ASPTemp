@@ -8,6 +8,9 @@ var paths = require('../paths');
 var compilerOptions = require('../babel-options');
 var assign = Object.assign || require('object.assign');
 var embedTemplates = require('gulp-angular-embed-templates');
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 // transpiles changed es6 files to SystemJS format
 // the plumber() call prevents 'pipe breaking' caused
@@ -31,21 +34,11 @@ gulp.task('build-system', ['clean'], function () {
       .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(to5(assign({}, compilerOptions, { plugins: ["transform-es2015-modules-systemjs"] })))
       .pipe(sourcemaps.write({ includeContent: true }))
+       //.pipe(concat('app.js'))
+        //.pipe(rename('libs.min.js'))
+        //.pipe(uglify())
       .pipe(gulp.dest(paths.output));
 });
-
-// copies changed html files to the output directory
-//gulp.task('build-html', function () {
-//    return gulp.src(paths.html)
-//      .pipe(changed(paths.output, { extension: '.html' }))
-//      .pipe(gulp.dest(paths.output));
-//});
-
-//gulp.task('build-html', function () {
-//    return gulp.src('src/**/*.ts')
-//        .pipe(embedTemplates({ sourceType: 'ts' }))
-//        .pipe(gulp.dest(paths.tempTs));
-//});
 
 // this task calls the clean task (located
 // in ./clean.js), then runs the build-system
@@ -53,7 +46,9 @@ gulp.task('build-system', ['clean'], function () {
 // https://www.npmjs.com/package/gulp-run-sequence
 gulp.task('build', function (callback) {
     return runSequence(
-      ['build-system'],
+      ['build-system','libs'],
       callback
     );
 });
+
+
