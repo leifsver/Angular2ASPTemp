@@ -4,16 +4,33 @@ var appRoot = 'src/';
 var outputRoot = 'wwwroot/';
 var tempRoot = 'temp/';
 var tempTs = tempRoot + '/ts/';
-var bowerComponentsRoot = 'bower_components/';
+var tempStyles = tempRoot + '/css/';
+var bowerSrc = 'bower_components/';
+var imgPaths = [
+        'resources/img/**/*.*',
+];
+
+var cssPaths = [
+    'resources/css/**/*.css',
+    'resources/font-awesome/**/*.css',
+    bowerSrc + 'bootstrap/dist/css/bootstrap.css'
+];
+
+var fontPaths = [
+        'resources/font-awesome/fonts/*',
+         'resources/fonts/*'
+];
 
 module.exports = {
     root: appRoot,
     source: appRoot + '**/*.ts',
     html: appRoot + '**/*.html',
-    style: 'resources/styles/**/*.scss',
+    scss: 'resources/styles/**/*.scss',
     output: outputRoot + '/scripts',
     temp: tempRoot,
     tempTs: tempTs,
+    tempStyles: tempStyles,
+    imgPaths: imgPaths,
     doc: './doc',
     e2eSpecsSrc: 'test/e2e/src/*.js',
     e2eSpecsDist: 'test/e2e/dist/',
@@ -21,5 +38,9 @@ module.exports = {
     outputLibs: outputRoot + '/libs/',
     outputResources: outputRoot + '/resources/',
     outputStyles: outputRoot + '/resources/css',
-    bowerComponentsRoot: bowerComponentsRoot
+    outputImages: outputRoot + '/resources/img',
+    bowerSrc: bowerSrc,
+    fontPaths: fontPaths,
+    outputFonts: outputRoot + '/resources/fonts',
+    css: cssPaths
 };

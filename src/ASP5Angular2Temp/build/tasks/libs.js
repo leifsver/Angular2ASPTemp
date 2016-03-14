@@ -12,7 +12,10 @@ var libs = [
    paths.npmSrc + '/systemjs/dist/system-polyfills.js',
    paths.npmSrc + '/rxjs/bundles/Rx.js',
    paths.npmSrc + '/angular2/bundles/angular2.dev.js',
-   paths.npmSrc + '/es6-shim/es6-shim.min.js'
+   paths.npmSrc + '/es6-shim/es6-shim.min.js',
+
+   paths.bowerSrc + '/bootstrap/dist/bootstrap.js',
+   paths.bowerSrc + '/jquery/dist/jquery.js'
 ];
 
 

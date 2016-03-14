@@ -16,7 +16,7 @@ var uglify = require('gulp-uglify');
 // the plumber() call prevents 'pipe breaking' caused
 // by errors from other gulp plugins
 // https://www.npmjs.com/package/gulp-plumber
-gulp.task('build-system', ['clean'], function () {
+gulp.task('build-system', function () {
     return gulp.src(paths.source)
       .pipe(plumber())
          .pipe(embedTemplates({
@@ -46,7 +46,8 @@ gulp.task('build-system', ['clean'], function () {
 // https://www.npmjs.com/package/gulp-run-sequence
 gulp.task('build', function (callback) {
     return runSequence(
-      ['build-system','build-styles','libs'],
+        'clean',
+      ['build-system','build-styles','libs','images','fonts'],
       callback
     );
 });
