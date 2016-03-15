@@ -4,4 +4,6 @@
     templateUrl: "recipe.component.html" 
 })
 
-export class RecipeComponent { }
+export class RecipeComponent { 
+    
+}
